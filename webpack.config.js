@@ -1,6 +1,10 @@
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  entry: 'server.js',
+  entry: './server.js',
+  target: 'node',
+  externals: [nodeExternals()],
+  mode: 'development',
   module: {
     rules: [
       {
@@ -18,9 +22,6 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
   devServer: {
     contentBase: './dist'
   }
