@@ -1,9 +1,8 @@
-const nodeExternals = require('webpack-node-externals');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
   target: 'node',
-  externals: [nodeExternals()],
   mode: 'development',
   module: {
     rules: [
@@ -24,5 +23,11 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist'
-  }
+  },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html"
+    })
+  ]
 };
