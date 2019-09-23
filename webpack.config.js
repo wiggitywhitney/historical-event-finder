@@ -1,3 +1,4 @@
+
 module.exports = {
   entry: 'server.js',
   module: {
@@ -17,6 +18,9 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   devServer: {
     contentBase: './dist'
   }
